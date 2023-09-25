@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Students</title>
+</head>
+
+<body>
+    <div align="right"><a href="/student/">Back</a></div>
+    <h1 align="center">Add Student</h1>
+    <div style="color: #f00">
+        <% if(typeof errors!=='undefined' ){ %>
+            <p>
+                <%= errors.validationError %>
+            </p>
+            <% } %>
+    </div>
+    <form action="/student/" method="post">
+        <table align="center">
+            <tr>
+                <td>UserName</td>
+                <td><input type="text" name="name" id=""></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" id=""></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" id=""></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="number" name="age" id=""></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" id=""> Male
+                    <input type="radio" name="gender" value="Female" id=""> Female
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Add"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

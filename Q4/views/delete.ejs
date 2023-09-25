@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Students</title>
+</head>
+
+<body>
+    <div align="right"><a href="/student/">Back</a></div>
+    <h1 align="center">Delete Student</h1>
+    <% if(typeof errors=='undefined' ){ %>
+        <form action="/student/delete" method="post">
+            <input type="hidden" name="_id" value="<%= data?._id %>">
+            <table align="center">
+                <tr>
+                    <td>UserName</td>
+                    <td><input disabled type="text" name="name" id="" value="<%= data?.name %>" required></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input disabled type="email" name="email" id="" value="<%= data?.email %>" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input disabled type="password" name="password" id="" value="<%= data?.password %>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input disabled type="number" name="age" id="" value="<%= data?.age %>" required></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input disabled type="radio" name="gender" value="Male" id="" <% if(data?.gender==='Male' )
+                            {%>checked<%} %>
+                            Male
+                            <input disabled type="radio" name="gender" value="Female" id="" <% if(data?.gender==='Male'
+                                ) {%>checked
+                            <%} %> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Delete"></td>
+                </tr>
+            </table>
+        </form>
+        <% } else{ %>
+            Student Not Available!
+            <%}%>
+</body>
+
+</html>

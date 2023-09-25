@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+
+<body>
+    <div align="right">
+        <a href="/student/add">Add Student</a> | <a href="/logout/">Logout</a>
+    </div>
+    <div style="color: red;">
+        <% if(typeof(noDataError)!=='undefined' ) { %>
+            <p>
+                <%= {noDataError} %>
+            </p>
+            <%}%>
+                <% if(typeof(accessToken)!=='undefined' ) { %>
+                    <script>
+                        localStorage.setItem('token', "<%= JSON.stringify(accessToken) %>"); // <- setup token into localStorage, (but i think it's not good place for that, and would be better get token with another authorization request)
+                    </script>
+                    <%}%>
+    </div>
+    <% if(typeof(data)!=='undefined' ) { %>
+        <table align="center" border="1">
+            <thead>
+                <tr>
+                    <td>UserName</td>
+                    <td>Email</td>
+                    <td>Age</td>
+                    <td>Gender</td>
+                    <td>Operations</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(student=>{
+                    %>
+                    <tr>
+                        <td>
+                            <%= student.name %>
+                        </td>
+                        <td>
+                            <%= student.email %>
+                        </td>
+                        <td>
+                            <%= student.age %>
+                        </td>
+                        <td>
+                            <%= student.gender %>
+                        </td>
+                        <td>
+                            <div class="mr-1">
+                                <a href="/student/edit/<%=student._id%>">edit</a>
+                                <a href="/student/delete/<%=student._id%>">delete</a>
+                                <a href="/student/<%=student._id%>">view</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+        <%}%>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body bgcolor="#f5ffff">
+    <h1 align="center">= Login Form =</h1>
+    <div style="color: #f00">
+        <% if(typeof errors!=='undefined' ){ %>
+            <p>
+                <%= errors.validationError %>
+            </p>
+            <% } %>
+    </div>
+    <form action="/login" method="post">
+        <table align="center">
+            <tr>
+                <td>UserName</td>
+                <td><input type="text" name="username" placeholder="Enter Username" /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" placeholder="Enter Password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

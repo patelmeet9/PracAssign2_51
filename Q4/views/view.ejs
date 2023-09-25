@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student</title>
+</head>
+
+<body>
+    <div align="right"><a href="/student/">Back</a></div>
+    <h1 align="center">View Student</h1>
+    <% if(typeof(data)!=='undefined' ) { %>
+        <table align="center">
+            <tr>
+                <td>UserName</td>
+                <td>
+                    <%= data.name %>
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <%= data.email %>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <%= data.password %>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>
+                    <%= data.age %>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <%= data.gender %>
+                </td>
+            </tr>
+        </table>
+        <% } else{ %>
+            Student Not Available!
+            <%}%>
+</body>
+
+</html>
